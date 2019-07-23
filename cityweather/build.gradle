@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+apply from: '../config/dependencies.gradle'
+apply from: '../config/androidSdk.gradle'
+
+android {
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation navigation.values()
+    implementation ui.values()
+    implementation rx.values()
+    implementation viewModel.values()
+
+    implementation testAndroid.values()
+    implementation testJvm.values()
+    testImplementation "org.mockito:mockito-inline:2.13.0"
+
+    debugImplementation 'androidx.fragment:fragment-testing:1.2.0-alpha01'
+
+    implementation project(':domain')
+    implementation project(':presentation')
+    implementation project(':core')
+
+}

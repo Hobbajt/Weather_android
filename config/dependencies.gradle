@@ -1,0 +1,121 @@
+ext {
+
+    // Android config
+    androidBuildTools = '28.0.3'
+    androidMinSdk = 24
+    androidTargetSdk = 28
+    androidCompileSdk = 28
+
+    def navigationGraph = "2.1.0-beta02"
+    def lifecycle = '2.2.0-alpha02'
+    def room = '2.1.0-rc01'
+
+    def timber = '4.7.1'
+
+    def threeTenABP = '1.2.1'
+
+    // DI
+    def dagger = '2.23.2'
+    def javaxAnnotationApi = '1.3.2'
+
+    // RX
+    def rxJava = '2.2.3'
+    def rxAndroid = '2.1.0'
+    def rxKotlin = '2.3.0'
+
+    // Network
+    def okHttp = '3.12.0'
+    def retrofit = '2.6.0'
+    def rxRetrofitAdapter = '2.5.0'
+
+    // Testing
+    def supportTest = '1.1.0'
+    def jUnit = '4.12'
+    def mockito = '2.15.0'
+
+    common = [
+            kotlin       : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+            kotlinReflect: "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version",
+            timber       : "com.jakewharton.timber:timber:${timber}",
+    ]
+
+    threeTen = [
+            threeTenTime: "com.jakewharton.threetenabp:threetenabp:${threeTenABP}"
+    ]
+
+    testThreeTen = [
+            threeTenTime: dependencies.create("org.threeten:threetenbp:${threeTenABP}") {
+                exclude module: 'com.jakewharton.threetenabp:threetenabp:1.0.2'
+            },
+    ]
+
+    ui = [
+            appCompat         : "androidx.appcompat:appcompat:1.0.2",
+            material          : "com.google.android.material:material:1.0.0",
+            recyclerView      : "androidx.recyclerview:recyclerview:1.0.0",
+            androidXCore      : "androidx.core:core:1.0.1",
+            androidXCoreKotlin: "androidx.core:core-ktx:1.0.1",
+            constraintLayout  : "androidx.constraintlayout:constraintlayout:2.0.0-beta2"
+    ]
+
+    di = [
+            dagger              : "com.google.dagger:dagger:${dagger}",
+            daggerAndroid       : "com.google.dagger:dagger-android:${dagger}",
+            daggerAndroidSupport: "com.google.dagger:dagger-android-support:${dagger}",
+            javaxAnnotationApi  : "javax.annotation:javax.annotation-api:${javaxAnnotationApi}",
+    ]
+
+    diAnnotationProcessor = [
+            daggerCompiler        : "com.google.dagger:dagger-compiler:${dagger}",
+            daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:$dagger",
+    ]
+
+    viewModel = [
+            test       : "android.arch.core:core-testing:2.0.0-alpha1",
+            viewModel  : "androidx.lifecycle:lifecycle-viewmodel:${lifecycle}",
+            runtime    : "androidx.lifecycle:lifecycle-runtime:${lifecycle}",
+            extrensions: "androidx.lifecycle:lifecycle-extensions:${lifecycle}",
+    ]
+
+    navigation = [
+            navigationFragment: "androidx.navigation:navigation-fragment-ktx:$navigationGraph",
+            navigationUi      : "androidx.navigation:navigation-ui-ktx:$navigationGraph"
+    ]
+
+    rx = [
+            rxJava   : "io.reactivex.rxjava2:rxjava:${rxJava}",
+            rxAndroid: "io.reactivex.rxjava2:rxandroid:${rxAndroid}",
+            rxKotlin : "io.reactivex.rxjava2:rxkotlin:$rxKotlin"
+    ]
+
+    network = [
+            retrofit      : "com.squareup.retrofit2:retrofit:${retrofit}",
+            retrofitRxJava: "com.squareup.retrofit2:adapter-rxjava2:${rxRetrofitAdapter}",
+            okHttp        : "com.squareup.okhttp3:okhttp:${okHttp}",
+            gson          : "com.google.code.gson:gson:2.8.5",
+            gsonConverter : "com.squareup.retrofit2:converter-gson:2.5.0",
+    ]
+
+    testAndroid = [
+            mockitoAndroid: "org.mockito:mockito-android:${mockito}",
+            testRunner    : "com.android.support.test:runner:${supportTest}",
+            testRules     : "com.android.support.test:rules:${supportTest}"
+    ]
+
+    testJvm = [
+            jUnit  : "junit:junit:${jUnit}",
+            mockito: "org.mockito:mockito-core:${mockito}"
+    ]
+
+    roomRuntime = [
+            roomRuntime: "androidx.room:room-runtime:${room}"
+    ]
+
+    roomRxJava = [
+            roomRxJava: "androidx.room:room-rxjava2:${room}"
+    ]
+
+    roomCompiler = [
+            roomCompiler: "androidx.room:room-compiler:${room}"
+    ]
+}

@@ -1,0 +1,20 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
+
+apply from: '../config/dependencies.gradle'
+apply from: '../config/androidSdk.gradle'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api network.values()
+    implementation rx.values()
+
+    implementation roomRxJava.values()
+    api roomRuntime.values()
+    kapt roomCompiler.values()
+
+    implementation project(':core')
+    implementation project(':domain')
+}

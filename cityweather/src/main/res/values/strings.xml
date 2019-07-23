@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="load_data_failed">¯\\_(ツ)_/¯ \nSomething went wrong.</string>
+    <string name="snackbar_load_data_failed">Something went wrong.</string>
+
+    <string name="city_list_title">City</string>
+    <string name="city_list_search_history">SEARCH HISTORY</string>
+    <string name="city_list_search_hint">Type a city name…</string>
+    <string name="city_list_search_validation_error">"The text can only contain the letters a-z and A-Z."</string>
+
+    <string name="weather_title">Weather</string>
+    <string name="weather_details_section_title">DETAILS</string>
+    <string name="weather_next_days_section_title">NEXT DAYS</string>
+    <string name="weather_hourly_temperature_section_title">HOURLY TEMPERATURE</string>
+    <string name="weather_rain_title">Rain</string>
+    <string name="weather_uv_index_title">UV Index</string>
+    <string name="weather_wind_title">Wind</string>
+    <string name="weather_air_quality_title">Air Quality</string>
+    <string name="weather_day_temperature_buy">Buy</string>
+</resources>

@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+apply from: '../config/dependencies.gradle'
+apply from: '../config/androidSdk.gradle'
+
+android {
+    dataBinding {
+        enabled = true
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix '.debug'
+            minifyEnabled false
+            debuggable true
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation navigation.values()
+    implementation ui.values()
+    implementation viewModel.values()
+
+    implementation testJvm.values()
+    implementation testAndroid.values()
+
+    implementation project(path: ':presentation')
+    implementation project(path: ':repository')
+    implementation project(path: ':domain')
+    implementation project(path: ':core')
+
+    // Feature modules
+    implementation project(path: ':cityweather')
+
+}

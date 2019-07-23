@@ -1,0 +1,25 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+apply from: '../config/dependencies.gradle'
+apply from: '../config/androidSdk.gradle'
+
+android {
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation navigation.values()
+    implementation ui.values()
+    implementation rx.values()
+    implementation viewModel.values()
+
+    implementation project(':domain')
+    implementation project(':core')
+}

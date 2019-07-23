@@ -1,0 +1,32 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
+
+apply from: '../config/dependencies.gradle'
+apply from: '../config/androidSdk.gradle'
+
+android {
+    dataBinding {
+        enabled = true
+    }
+
+    defaultConfig {
+        /*
+            Additional API keys:
+            ddFPoaG9nFfeGZ53K5A23I3K4U107paR
+            xAlRQokAW9JQTx3JChg4PSkw6TWx85wy
+            M37KRpzkFe8PPnjQAdenkL4LdFFiZi9V
+            by8ZL7iieBeiQKHGfCaTJX1B0jbYjF17
+            S0VmGdMVOrD6fY42aNdSThi45vjtpfQY
+            fqiK3ncWyW3XGd9RwPRnMKjAQIfxyrWw
+         */
+        buildConfigField 'String', 'WEATHER_API_KEY', "\"ddFPoaG9nFfeGZ53K5A23I3K4U107paR\""
+        buildConfigField 'String', 'WEATHER_API_HOST_URL', "\"http://dataservice.accuweather.com/\""
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation rx.values()
+}

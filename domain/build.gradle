@@ -1,0 +1,19 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
+
+apply from: '../config/dependencies.gradle'
+apply from: '../config/androidSdk.gradle'
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation rx.values()
+    implementation testJvm.values()
+
+    implementation project(path: ':core')
+}
+
+kapt {
+    correctErrorTypes = true
+    generateStubs = false
+}
