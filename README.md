@@ -4,7 +4,8 @@ Android weather application created in Kotlin. The project was created based on 
 <h2>Important information</h2>
 <ul>
 <li>Free API allows to load weather forecast for 5 days at most. To achieve scrollable effect there is additional 8 items with "Buy" title. In production version should be used prime or elite API package.</li>
-<li>Currently, city search validation allows to type only a-z and A-Z letters (without international signs and spaces), because it was the task requirement. This causes that some cities can't be searched (e.g. "Łódź" or "New York"). In CityListVM class there is comment with additional regular expressions allowing to use international letters and spaces.</ul>
+<li>Currently, city search validation allows to type only a-z and A-Z letters (without international signs and spaces), because it was the task requirement. This causes that some cities can't be searched (e.g. "Łódź" or "New York"). In CityListVM class there is comment with additional regular expressions allowing to use international letters and spaces.
+<li>Free API allows to make up to 50 requests to the server per day. If you will receive message "Something went wrong." (and you have Internet connection), then replace API key in build.gradle file. You can use one of additional keys, that is in build.gradle (core module). If none of them works, create account on https://developer.accuweather.com and generate new one.</li></ul>
 
 <h2>Used technologies and libraries</h2>
 <ul>
@@ -21,7 +22,7 @@ Android weather application created in Kotlin. The project was created based on 
 </ul>
 
 <h2>Modules</h2>
-Project is divided into modules: <br>
+The project is divided into modules: <br>
 <b>app</b> - main module containing Application and the only Activity.<br>
 <b>core</b> - module used in each other. Contains util classes and scheduler provider.<br>
 <b>presentation</b> - contains classes used in feature modules. Currently exists only one feature 
