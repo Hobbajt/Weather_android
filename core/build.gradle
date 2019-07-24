@@ -20,7 +20,7 @@ android {
             S0VmGdMVOrD6fY42aNdSThi45vjtpfQY
             fqiK3ncWyW3XGd9RwPRnMKjAQIfxyrWw
          */
-        buildConfigField 'String', 'WEATHER_API_KEY', "\"ddFPoaG9nFfeGZ53K5A23I3K4U107paR\""
+        buildConfigField 'String', 'WEATHER_API_KEY', "\"M37KRpzkFe8PPnjQAdenkL4LdFFiZi9V\""
         buildConfigField 'String', 'WEATHER_API_HOST_URL', "\"http://dataservice.accuweather.com/\""
     }
 }

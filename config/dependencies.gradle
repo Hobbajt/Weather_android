@@ -1,17 +1,14 @@
 ext {
-
-    // Android config
-    androidBuildTools = '28.0.3'
-    androidMinSdk = 24
-    androidTargetSdk = 28
-    androidCompileSdk = 28
-
     def navigationGraph = "2.1.0-beta02"
     def lifecycle = '2.2.0-alpha02'
+
+    // Database
     def room = '2.1.0-rc01'
 
+    // Logs
     def timber = '4.7.1'
 
+    // Time
     def threeTenABP = '1.2.1'
 
     // DI
