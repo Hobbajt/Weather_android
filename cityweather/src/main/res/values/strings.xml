@@ -6,7 +6,7 @@
     <string name="city_list_title">City</string>
     <string name="city_list_search_history">SEARCH HISTORY</string>
     <string name="city_list_search_hint">Type a city name…</string>
-    <string name="city_list_search_validation_error">"The text can only contain the letters a-z and A-Z."</string>
+    <string name="city_list_search_validation_error">"The text can only contain letters a-z and A-Z."</string>
 
     <string name="weather_title">Weather</string>
     <string name="weather_details_section_title">DETAILS</string>
