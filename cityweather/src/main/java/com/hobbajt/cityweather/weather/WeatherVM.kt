@@ -79,7 +79,7 @@ class WeatherVM @Inject constructor(
                     daysWeather.value = it
 
                     dayTemperatures.value = it.map { weather -> createDayTemperatureItem(weather) }
-                        // Add 8 additional locked days, to achieve scrollable effect. Free version of API allows to load temperature for max 5 days.
+                        // Add 8 additional locked days, to achieve scrollable effect. The free API version allows to load temperature for up to 5 days.
                         .plus(IntRange(0, 7).map { createLockedTemperatureItem() })
 
                     it.firstOrNull()?.let { weather ->

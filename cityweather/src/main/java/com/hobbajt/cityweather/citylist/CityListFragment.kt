@@ -75,8 +75,8 @@ class CityListFragment : BaseFragment<CityListVM, FragmentCityListBinding>() {
     }
 
     private fun displayLoadingErrorSnackbar() {
-        view?.let {view ->
-            if(somethingWentWrongSnackbar == null) {
+        view?.let { view ->
+            if (somethingWentWrongSnackbar == null) {
                 context?.getString(R.string.snackbar_load_data_failed)?.let { text ->
                     somethingWentWrongSnackbar = Snackbar.make(view, text, Snackbar.LENGTH_LONG)
                 }

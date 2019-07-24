@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/navigation_graph"
-            app:startDestination="@+id/cityListFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@+id/cityListFragment">
 
     <fragment
-            android:id="@+id/cityListFragment"
-            android:name="com.hobbajt.cityweather.citylist.CityListFragment"
-            android:label="@string/city_list_title"
-            tools:layout="@layout/fragment_city_list">
+        android:id="@+id/cityListFragment"
+        android:name="com.hobbajt.cityweather.citylist.CityListFragment"
+        android:label="@string/city_list_title"
+        tools:layout="@layout/fragment_city_list">
         <action
-                android:id="@+id/action_cityListFragment_to_weatherFragment"
-                app:destination="@id/weatherFragment"/>
+            android:id="@+id/action_cityListFragment_to_weatherFragment"
+            app:destination="@id/weatherFragment" />
 
     </fragment>
 
     <fragment
-            android:id="@+id/weatherFragment"
-            android:name="com.hobbajt.cityweather.weather.WeatherFragment"
-            android:label=""
-            tools:layout="@layout/fragment_weather"/>
+        android:id="@+id/weatherFragment"
+        android:name="com.hobbajt.cityweather.weather.WeatherFragment"
+        android:label=""
+        tools:layout="@layout/fragment_weather" />
 </navigation>
