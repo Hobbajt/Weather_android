@@ -1,99 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
-                name="vm"
-                type="com.hobbajt.cityweather.citylist.CityListVM"/>
+            name="vm"
+            type="com.hobbajt.cityweather.citylist.CityListVM" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:animateLayoutChanges="true"
-            android:layout_height="match_parent"
-            android:background="@color/darkPurple">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="@color/darkPurple">
 
         <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/citySearchField"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:afterTextChanged="@{() -> vm.afterSearchTextChanged()}"
-                android:background="@drawable/background_weather_property"
-                android:drawableStart="@drawable/ic_search"
-                android:drawablePadding="12dp"
-                android:drawableTint="@color/grey"
-                android:hint="@string/city_list_search_hint"
-                android:lines="1"
-                android:maxLines="1"
-                android:padding="8dp"
-                android:text="@={vm.searchText}"
-                android:textColor="@color/white"
-                android:textColorHint="@color/lightTransparentWhite"
-                android:textCursorDrawable="@null"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+            android:id="@+id/citySearchField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:afterTextChanged="@{() -> vm.afterSearchTextChanged()}"
+            android:background="@drawable/background_weather_property"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="12dp"
+            android:drawableTint="@color/grey"
+            android:hint="@string/city_list_search_hint"
+            android:lines="1"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:text="@={vm.searchText}"
+            android:textColor="@color/white"
+            android:textColorHint="@color/lightTransparentWhite"
+            android:textCursorDrawable="@null"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <include
-                android:id="@+id/searchItemsLabel"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                layout="@layout/item_title"
-                app:title="@{@string/city_list_search_history}"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/citySearchField"/>
+            android:id="@+id/searchItemsLabel"
+            layout="@layout/item_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/citySearchField"
+            app:title="@{@string/city_list_search_history}" />
 
         <androidx.constraintlayout.widget.Group
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:isVisible="@{vm.areHistoryCitiesDisplayed}"
-                app:constraint_referenced_ids="searchItemsLabel"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="searchItemsLabel"
+            app:isVisible="@{vm.areHistoryCitiesDisplayed}" />
 
 
         <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/cityList"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="8dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/searchItemsLabel"
-                tools:listitem="@layout/item_city"/>
+            android:id="@+id/cityList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchItemsLabel"
+            tools:listitem="@layout/item_city" />
 
         <include
-                layout="@layout/item_loader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:isVisible="@{vm.isLoading}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/searchItemsLabel"/>
+            layout="@layout/item_loader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:isVisible="@{vm.isLoading}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchItemsLabel" />
 
         <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="@string/load_data_failed"
-                android:textColor="@color/grey"
-                app:isVisible="@{vm.isLoadingError &amp;&amp; !vm.areHistoryCitiesDisplayed}"
-                android:textSize="16sp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/citySearchField"/>
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/load_data_failed"
+            android:textColor="@color/grey"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:isVisible="@{vm.isLoadingError &amp;&amp; !vm.areHistoryCitiesDisplayed}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/citySearchField" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

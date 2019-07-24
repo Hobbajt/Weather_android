@@ -1,236 +1,235 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
-        <import type="com.hobbajt.cityweather.R"/>
+        <import type="com.hobbajt.cityweather.R" />
 
         <variable
-                name="vm"
-                type="com.hobbajt.cityweather.weather.WeatherVM"/>
+            name="vm"
+            type="com.hobbajt.cityweather.weather.WeatherVM" />
 
     </data>
 
     <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/darkPurple"
-            android:overScrollMode="never">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/darkPurple"
+        android:overScrollMode="never">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineStart"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:animateLayoutChanges="true">
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp" />
 
             <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guidelineStart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_begin="16dp"/>
-
-            <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guidelineEnd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_end="16dp"/>
+                android:id="@+id/guidelineEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="16dp" />
 
             <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitXY"
-                    app:layout_constraintBottom_toBottomOf="@+id/header"
-                    app:layout_constraintEnd_toEndOf="@id/header"
-                    app:layout_constraintStart_toStartOf="@id/header"
-                    app:layout_constraintTop_toTopOf="@id/header"
-                    app:srcCompat="@drawable/background_weather"/>
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="@+id/header"
+                app:layout_constraintEnd_toEndOf="@id/header"
+                app:layout_constraintStart_toStartOf="@id/header"
+                app:layout_constraintTop_toTopOf="@id/header"
+                app:srcCompat="@drawable/background_weather" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/header"
+                android:id="@+id/header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/currentTemperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:textSize="100sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:temperature="@{vm.currentWeather.temperature}"
+                    tools:text="23\u2103"
+                    tools:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/date"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:paddingBottom="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="@{vm.currentWeather.date}"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toBottomOf="@id/currentTemperature"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="Jun 18, 2019" />
 
                 <TextView
-                        android:id="@+id/currentTemperature"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:includeFontPadding="false"
-                        android:textSize="100sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:temperature="@{vm.currentWeather.temperature}"
-                        tools:text="23\u2103"
-                        tools:textColor="@android:color/black"/>
+                    android:id="@+id/place"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{vm.city.name + `, ` + vm.city.country}"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:transitionName="cityName"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/date"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="New York, Ny" />
 
                 <TextView
-                        android:id="@+id/date"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="@{vm.currentWeather.date}"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/currentTemperature"
-                        app:layout_constraintWidth_percent="0.5"
-                        tools:text="Jun 18, 2019"/>
-
-                <TextView
-                        android:id="@+id/place"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="@{vm.city.name + `, ` + vm.city.country}"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:transitionName="cityName"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/date"
-                        app:layout_constraintWidth_percent="0.5"
-                        tools:text="New York, Ny"/>
-
-                <TextView
-                        android:id="@+id/weatherDescription"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:gravity="end"
-                        android:maxLines="2"
-                        android:paddingStart="14dp"
-                        android:text="@{vm.currentWeather.description}"
-                        android:textColor="@color/white"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toEndOf="@id/place"
-                        app:layout_constraintTop_toBottomOf="@id/currentTemperature"
-                        tools:text="Heavy rain"/>
+                    android:id="@+id/weatherDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="end"
+                    android:maxLines="2"
+                    android:paddingStart="14dp"
+                    android:text="@{vm.currentWeather.description}"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@id/place"
+                    app:layout_constraintTop_toBottomOf="@id/currentTemperature"
+                    tools:text="Heavy rain" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <include
-                    android:id="@+id/weatherDetailsTitle"
-                    layout="@layout/item_title"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
-                    app:layout_constraintStart_toEndOf="@id/guidelineStart"
-                    app:layout_constraintTop_toBottomOf="@id/header"
-                    app:title="@{@string/weather_details_section_title}"/>
+                android:id="@+id/weatherDetailsTitle"
+                layout="@layout/item_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/header"
+                app:title="@{@string/weather_details_section_title}" />
 
             <include
-                    android:id="@+id/indexUv"
-                    layout="@layout/item_weather_property"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    app:item="@{vm.indexUv}"
-                    app:layout_constraintDimensionRatio="1:1"/>
-
-
-            <include
-                    android:id="@+id/wind"
-                    layout="@layout/item_weather_property"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:item="@{vm.wind}"
-                    app:layout_constraintDimensionRatio="1:1"/>
+                android:id="@+id/indexUv"
+                layout="@layout/item_weather_property"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:item="@{vm.indexUv}"
+                app:layout_constraintDimensionRatio="1:1" />
 
 
             <include
-                    android:id="@+id/airQuality"
-                    layout="@layout/item_weather_property"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:item="@{vm.airQuality}"
-                    app:layout_constraintDimensionRatio="1:1"/>
+                android:id="@+id/wind"
+                layout="@layout/item_weather_property"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:item="@{vm.wind}"
+                app:layout_constraintDimensionRatio="1:1" />
+
+
+            <include
+                android:id="@+id/airQuality"
+                layout="@layout/item_weather_property"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:item="@{vm.airQuality}"
+                app:layout_constraintDimensionRatio="1:1" />
 
             <androidx.constraintlayout.helper.widget.Flow
-                    android:id="@+id/weatherProperties"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    app:constraint_referenced_ids="indexUv, wind, airQuality"
-                    app:flow_horizontalGap="8dp"
-                    app:flow_horizontalStyle="spread"
-                    app:flow_maxElementsWrap="1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/weatherDetailsTitle"/>
+                android:id="@+id/weatherProperties"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                app:constraint_referenced_ids="indexUv, wind, airQuality"
+                app:flow_horizontalGap="8dp"
+                app:flow_horizontalStyle="spread"
+                app:flow_maxElementsWrap="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weatherDetailsTitle" />
 
             <androidx.constraintlayout.widget.Group
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:constraint_referenced_ids="indexUv, wind, airQuality, weatherDetailsTitle"
-                    app:isVisible="@{vm.isLoadingDailyWeatherFinished}"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="indexUv, wind, airQuality, weatherDetailsTitle"
+                app:isVisible="@{vm.isLoadingDailyWeatherFinished}" />
 
 
             <include
-                    android:id="@+id/hourlyTemperatureTitle"
-                    layout="@layout/item_title"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
-                    app:layout_constraintStart_toEndOf="@id/guidelineStart"
-                    app:layout_constraintTop_toBottomOf="@id/weatherProperties"
-                    app:title="@{@string/weather_hourly_temperature_section_title}"/>
+                android:id="@+id/hourlyTemperatureTitle"
+                layout="@layout/item_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/weatherProperties"
+                app:title="@{@string/weather_hourly_temperature_section_title}" />
 
             <HorizontalScrollView
-                    android:id="@+id/temperatureChartContainer"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:scrollbars="none"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
-                    app:layout_constraintStart_toEndOf="@id/guidelineStart"
-                    app:layout_constraintTop_toBottomOf="@id/hourlyTemperatureTitle">
+                android:id="@+id/temperatureChartContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:scrollbars="none"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/hourlyTemperatureTitle">
 
                 <com.hobbajt.cityweather.weather.SmoothCurvedChart
-                        android:id="@+id/hourlyTemperatureChart"
-                        android:layout_width="wrap_content"
-                        android:layout_height="200dp"/>
+                    android:id="@+id/hourlyTemperatureChart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp" />
 
             </HorizontalScrollView>
 
             <include
-                    android:id="@+id/dayTemperaturesTitle"
-                    layout="@layout/item_title"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
-                    app:layout_constraintStart_toEndOf="@id/guidelineStart"
-                    app:layout_constraintTop_toBottomOf="@id/temperatureChartContainer"
-                    app:title="@{@string/weather_next_days_section_title}"/>
+                android:id="@+id/dayTemperaturesTitle"
+                layout="@layout/item_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintStart_toEndOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/temperatureChartContainer"
+                app:title="@{@string/weather_next_days_section_title}" />
 
             <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/dayTemperatures"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/dayTemperaturesTitle"
-                    tools:listitem="@layout/item_weather_day_temperature">
-            </androidx.recyclerview.widget.RecyclerView>
+                android:id="@+id/dayTemperatures"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dayTemperaturesTitle"
+                tools:listitem="@layout/item_weather_day_temperature" />
 
             <androidx.constraintlayout.widget.Group
-                    android:layout_width="wrap_content"
-                    app:isVisible="@{vm.isLoadingDailyWeatherFinished}"
-                    android:layout_height="wrap_content"
-                    app:constraint_referenced_ids="dayTemperatures, dayTemperaturesTitle"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="dayTemperatures, dayTemperaturesTitle"
+                app:isVisible="@{vm.isLoadingDailyWeatherFinished}" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
