@@ -19,6 +19,7 @@ class CityListFragment : BaseFragment<CityListVM, FragmentCityListBinding>() {
 
     private lateinit var selectedCityVm: SelectedCityVM
     private var cityListAdapter: CityListAdapter? = null
+    private var somethingWentWrongSnackbar: Snackbar? = null
 
     override fun bind() {
         binding?.vm = vm
@@ -74,11 +75,13 @@ class CityListFragment : BaseFragment<CityListVM, FragmentCityListBinding>() {
     }
 
     private fun displayLoadingErrorSnackbar() {
-        view?.let {
-            val text = context?.getString(R.string.snackbar_load_data_failed)
-            if (text != null) {
-                Snackbar.make(it, text, Snackbar.LENGTH_LONG).show()
+        view?.let {view ->
+            if(somethingWentWrongSnackbar == null) {
+                context?.getString(R.string.snackbar_load_data_failed)?.let { text ->
+                    somethingWentWrongSnackbar = Snackbar.make(view, text, Snackbar.LENGTH_LONG)
+                }
             }
+            somethingWentWrongSnackbar?.show()
         }
     }
 
