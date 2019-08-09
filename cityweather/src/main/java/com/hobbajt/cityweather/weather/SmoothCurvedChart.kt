@@ -4,7 +4,7 @@ import android.content.Context
 import android.graphics.*
 import android.text.TextPaint
 import android.util.AttributeSet
-import android.widget.ImageView
+import android.view.View
 import androidx.core.content.ContextCompat
 import com.hobbajt.cityweather.R
 import com.hobbajt.cityweather.weather.model.ChartValue
@@ -18,7 +18,7 @@ class SmoothCurvedChart @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : ImageView(context, attrs, defStyleAttr) {
+) : View(context, attrs, defStyleAttr) {
     companion object {
         private const val SMOOTHNESS = 0.3f
         private const val FONT_NAME = "sans-serif-light"

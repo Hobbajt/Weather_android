@@ -54,8 +54,7 @@ object TemperatureMapper {
     fun mapRepositoryToDomain(weatherProperty: RepoWeatherProperty): Temperature {
         return Temperature(
             unit = weatherProperty.unit,
-            value = weatherProperty.value,
-            category = TemperatureCategory.find(weatherProperty.value)
+            value = weatherProperty.value
         )
     }
 }
