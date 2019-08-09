@@ -68,7 +68,7 @@
                     android:textSize="100sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:temperature="@{vm.currentWeather.temperature}"
+                    android:text="@{vm.currentWeather.temperature.textValue()}"
                     tools:text="23\u2103"
                     tools:textColor="@android:color/black" />
 
