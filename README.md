@@ -1,6 +1,13 @@
 <h1>Weather</h1>
 Android weather application created in Kotlin. The project was created based on clean architecture.
 
+<h2>Screenshots</h2>
+<p float="left">
+<img src="https://github.com/Hobbajt/Weather_android/blob/master/screenshots/1.jpg" width="250" />
+<img src="https://github.com/Hobbajt/Weather_android/blob/master/screenshots/2.jpg" width="250" />
+<img src="https://github.com/Hobbajt/Weather_android/blob/master/screenshots/3.jpg" width="250" />
+</p>
+
 <h2>Important information</h2>
 <ul>
 <li>Free API allows to load weather forecast for 5 days at most. To achieve scrollable effect there is additional 8 items with "Buy" title. In production version should be used prime or elite API package.</li>
