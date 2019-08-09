@@ -32,14 +32,7 @@ class CityListVM @Inject constructor(
 
     companion object {
         private const val SEARCH_WRITE_DELAY = 500L
-        /*
-        The regular expression "a-zA-Z" given in the task requirements doesn't work.
-        The Working version of this regex is "[a-zA-Z]+", which doesn't allow searching text containing
-        Polish letters (e.g. Łódź) and spaces (e.g. New York). To allow searching Polish letters and spaces
-        "[a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ ]+" regex should be used. To allow searching all international letters and spaces
-        "^[\\p{L} ]+" regex should be used.
-         */
-        private const val SEARCH_VALIDATION_REGEX = "[a-zA-Z]+"
+        private const val SEARCH_VALIDATION_REGEX = "^[\\p{L} ]+"
     }
 
     override var toolbar = MutableLiveData<Toolbar>().apply {

@@ -34,27 +34,10 @@ data class WeatherProperty(
 
 data class Temperature(
     val value: Float,
-    val unit: String,
-    val category: TemperatureCategory
+    val unit: String
 ) {
     fun textValue(): String {
         return "${value.roundToInt()}°"
-    }
-}
-
-enum class TemperatureCategory {
-    LOW,
-    MEDIUM,
-    HIGH;
-
-    companion object {
-        fun find(temperature: Float): TemperatureCategory {
-            return when {
-                temperature < 10F -> LOW
-                temperature > 20F -> HIGH
-                else -> MEDIUM
-            }
-        }
     }
 }
 
